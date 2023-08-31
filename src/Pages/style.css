@@ -1,0 +1,81 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.navbar-header {
+    width: 100%;
+    height: 40px;
+    padding: 15px 25px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(86deg,
+    rgb(81, 81, 179) , rgb(28, 95, 126), rgb(16, 117, 61));
+}
+
+.home_comp{
+    width: 100%;
+}
+.list_item{
+    color: purple;
+    text-decoration:solid;
+    margin: 0px 10px;
+    font-weight: bold;
+}
+.link{
+    color: white;
+    text-decoration: none;
+    margin: 0px 10px;
+}
+
+.btn_input{
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.post_form{
+    width: 50%;
+    border: 1px solid gray;
+    padding: 20px;
+}
+
+.post_form input, .post_form textarea, .post_form button{
+    width: 100%;
+    margin: 10px 0px;
+    padding: 8px;
+}
+.post_form .file{
+    border: 1px solid grey;
+
+}
+
+.post_form button{
+    cursor: pointer;
+    background-color: green;
+    color: white;
+}
+
+.ticket{
+    width: 80%;
+    margin: 10px;
+    border: 1px solid gray;
+    padding: 10px;
+    display: flex;
+    text-decoration: none;
+    color: black;
+}
+
+.ticket img{
+    width: 200px;
+    height: 200px;
+}
+
+.ticket .ticket_text{
+    margin-left: 10px;
+}
