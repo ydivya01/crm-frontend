@@ -28,7 +28,7 @@ function Home() {
 
 </h1>
         <p>Create and send customizable email campaigns with pro templates, built to get more clicks.…</p>
-        <div class="date">6 Oct 2017</div>
+        <div class="date">1-9-2023</div>
        
         <Link to='/support'><Button>Click</Button></Link>
       </div>
