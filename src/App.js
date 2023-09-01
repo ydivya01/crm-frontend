@@ -22,7 +22,7 @@ import AddUSer from './Pages/AddUSer';
 import Features from './Components/Features';
 import Singleuser from './Pages/Singleuser';
 import Testhome from './Components/testhome';
-// import Login from './Pages/Login';
+
 
 export const userContext = createContext()
 
@@ -62,6 +62,7 @@ axios.get('http://localhost:3001/')
   <Route path='/innerhome' element={<InnerHome/>}/>
   <Route path='/adduser' element={<AddUSer/>}/>
   <Route path='/features' element={<Features/>}/>
+  
  
   <Route path='/' element={<Home/>}/>
   
