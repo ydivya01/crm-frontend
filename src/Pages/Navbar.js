@@ -34,9 +34,9 @@ axios.get('http://localhost:3001/logout')
                 {user.email? <Link to='/innerhome' className='link'>Home</Link> : <></>}
                 
            
-                <Link to='' className='link'>Features</Link>
-                <Link to='' className='link'>Industry</Link>
-                <Link to='' className='link'>Resource</Link>
+                <Link to='/support' className='link'>Features</Link>
+                <Link to='/support' className='link'>Industry</Link>
+                <Link to='/support' className='link'>Resource</Link>
                 <Link to='/support' className='link'>Support</Link>
                 {user.name? <></> :<Link to='/register' className='link'>Register</Link> }
                 
