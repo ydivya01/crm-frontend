@@ -6,7 +6,7 @@ function Support() {
     <>
     
     <Row style={{margin:'80px'}}>
-    <Link to='/innerhome'><Button> Back</Button></Link>
+    <Link to='/'><Button> Back</Button></Link>
     <Col className="bg-light border" md={{ offset: 3, size: 6 }} sm="12">
     <div>
         <h1 className='text-center'>How can we help?</h1>
