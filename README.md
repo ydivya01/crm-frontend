@@ -1,6 +1,13 @@
-# Getting Started with Create React App
+Admin
+Email : divya@guvi.com
+passowrd : 12345
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Employee
+Email : stella@guvi.com
+password : 12345
+
+You can register and than login also.
+
 
 ## Available Scripts
 
