@@ -5,7 +5,7 @@ import { useState, useContext} from 'react'
 import { userContext } from '../App'
 import axios from 'axios'
 import './style.css'
-import { Button } from 'reactstrap'
+
 
 function Createticket() {
 
@@ -17,7 +17,7 @@ function Createticket() {
     const user = useContext(userContext)
     const navigate = useNavigate()
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
 
         const formData = new FormData()
@@ -26,15 +26,28 @@ function Createticket() {
         formData.append('file', file)
         formData.append('status', status)
         formData.append('email', user.email)
-         axios.post('http://localhost:3001/createticket', formData)
+      await  axios.post('http://localhost:3001/createticket', formData)
             .then(res => {
                 console.log(res.data)
                 if (res.data === 'Success') {
-                    window.location.href = '/employee'
+                    console.log(user.role)
+                    if(user.name === 'Divya Yadav'){
+                        navigate('/dashboard')
+                    }else{
+                        navigate('/employee')
+                    }
+                    
+                   
                 }
             })
             .catch(err => console.log(err))
     }
+
+//   const userROle = (e) =>{
+//     e.preventDefault()
+//     console.log(user.role)
+//   }
+
 
 
     return (
@@ -42,6 +55,7 @@ function Createticket() {
             <div className='bg-white p-3 rounded w-60'>
            
                 <h2 className='text-center'>New Service Request</h2>
+               {/* <button onClick={userROle}>role</button> */}
                 <form onSubmit={handleSubmit}>
                     <div className='mb-3'>
                         <label htmlFor='title'>

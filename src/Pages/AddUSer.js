@@ -17,9 +17,9 @@ function AddUSer() {
 
 
 
-    const handleSubmit = (e) =>{
+    const handleSubmit = async (e) =>{
         e.preventDefault()
-        axios.post('http://localhost:3001/adduser' , {leadname, email, department, status})
+      await axios.post('http://localhost:3001/adduser' , {leadname, email, department, status})
         .then(res => {
             console.log(res.data)
             alert('User Added')
@@ -28,25 +28,7 @@ function AddUSer() {
         .catch(err=> console.log(err))
     }
 
-    // const handleSubmit = (e) => {
-    //     e.preventDefault()
-
-    //     const formData = new FormData()
-    //     formData.append('title', title)
-    //     formData.append('description', description)
-    //     formData.append('file', file)
-    //     formData.append('status', status)
-    //     formData.append('email', user.email)
-    //      axios.post('http://localhost:3001/createticket', formData)
-    //         .then(res => {
-    //             console.log(res.data)
-    //             if (res.data === 'Success') {
-    //                 window.location.href = '/employee'
-    //             }
-    //         })
-    //         .catch(err => console.log(err))
-    // }
-    
+ 
     return (
         <div className='d-flex justify-content-center align-items-center bg-secondary vh-100'>
             <div className='bg-white p-3 rounded w-60'>

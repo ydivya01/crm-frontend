@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
 import { userContext } from '../App'
 import axios from 'axios'
+import {Button} from 'reactstrap'
 
 function Navbar() {
 
@@ -11,13 +12,12 @@ function Navbar() {
     const navigate = useNavigate()
 
     const handleLogout = () => {
-
-        axios.get('http://localhost:3001/logout')
+axios.get('http://localhost:3001/logout')
             .then(res => {
                 //navigate(0)
                 if(res.data === "Success")
                
-                navigate('/')
+                window.location.href='/'
             }).catch(err => console.log(err))
     }
 
@@ -26,14 +26,15 @@ function Navbar() {
         <div className='navbar-header'>
             <div className='link'>
                 
-                <h2><Link to='/' className='link'>CRM{user.email ? <></> : ' DIVYA'}</Link></h2>
+                <h3><Link to='/' className='link'>CRM</Link></h3>
                 
             </div>
+           
             <div>
                 {user.email? <Link to='/innerhome' className='link'>Home</Link> : <></>}
                 
            
-                <Link to='features' className='link'>Features</Link>
+                <Link to='' className='link'>Features</Link>
                 <Link to='' className='link'>Industry</Link>
                 <Link to='' className='link'>Resource</Link>
                 <Link to='/support' className='link'>Support</Link>
@@ -43,7 +44,14 @@ function Navbar() {
 
             </div>
             {user.email ?
-                <div><input type='button' onClick={handleLogout} value="Logout"/></div> :
+            <Button onClick={handleLogout}
+            color="info"
+            size="sm"
+          >
+            Logout
+          </Button>
+                //<div><Button onClick={handleLogout}>lOGOUT</Button></div> 
+                :
                 <div className='link'><h5><Link to='/innerhome' className='link'>Login</Link></h5>
                 
                 </div>

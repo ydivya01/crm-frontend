@@ -21,8 +21,8 @@ axios.get('http://localhost:3001/getuserbyid/'+id)
 .catch(err => console.log(err))
     },[])
 
-const handleDelete = ()=>{
-axios.delete('http://localhost:3001/deleteuser/'+id)
+const handleDelete = async ()=>{
+await axios.delete('http://localhost:3001/deleteuser/'+id)
 .then(result => {
 navigate('/dashboard')
 })
@@ -45,7 +45,13 @@ navigate('/dashboard')
       {vuser.status}
     </CardSubtitle>
     <CardText>
-    {vuser.description}
+   {vuser.description}
+   
+    <div>
+    Department : {vuser.department}
+    </div>
+   
+    
     </CardText>
     <div className='text-center'>
    

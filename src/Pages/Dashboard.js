@@ -29,7 +29,7 @@ const [users, setUsers] = useState([])
     return (
 
         <>
-        <h2 style={{ display: "block" ,color:'grey'}}>Admin</h2>
+     
         <Container>
       <div className="">
         <div className="table-wrapper">

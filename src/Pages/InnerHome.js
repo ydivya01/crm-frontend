@@ -6,7 +6,7 @@ function InnerHome() {
     <>
     <div className='d-flex justify-content-center align-items-center bg-secondary vh-100'>
 <Row style={{margin:'80px'}} >
-  <Col className="bg-light border" md={{size: 4 ,offset: 2 }} sm="6">
+  <Col className="bg-light border">
   <vl style={{border:'6px solid white',
   height: '500px'}}/>
     <Card body>
@@ -21,10 +21,11 @@ function InnerHome() {
       </Button></Link>  
     </Card>
   </Col>
-
-  <Col  className="bg-light border" md={{size: 4}} sm="6">
+</Row>
+<Row>
+  <Col  className="bg-light border"  >
   <vl style={{border:'6px solid white',
-  height: '500px'}}/>
+  height: '800px'}}/>
     <Card body>
       <CardTitle tag="h5" className='text-center'>
      Employee

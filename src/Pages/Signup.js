@@ -13,9 +13,9 @@ const [email, setEmail] = useState('')
 
 const navigate = useNavigate()
 
-const handleSubmit = (e) =>{
+const handleSubmit = async (e) =>{
     e.preventDefault()
-    axios.post('http://localhost:3001/register' , {name, email, password})
+   await axios.post('http://localhost:3001/register' , {name, email, password})
     .then(res => {
         alert('User Registered')
         navigate('/')

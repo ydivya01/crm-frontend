@@ -1,36 +1,36 @@
 import React from 'react'
 import axios from 'axios'
 import { useNavigate, Link } from 'react-router-dom'
-import {useState} from 'react'
+import {useState,useContext} from 'react'
+import { userContext } from '../App'
 
-function Login() {
+function Login({setUser}) {
 
     const [password, setPassord] = useState('')
     const [email, setEmail] = useState('')
-
+    const user = useContext(userContext)
     const navigate = useNavigate()
 
     axios.defaults.withCredentials = true;
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
+        console.log(e)
         e.preventDefault()
-        axios.post('http://localhost:3001/login', { email, password })
+        console.log(e)
+    await axios.post('http://localhost:3001/login', { email, password})
             .then(res => {
                 console.log(res.data)
                 if(res.data.Status === 'Success'){
+                    setUser({email: res.data.email, name:res.data.name})
                     if(res.data.role === 'admin'){
-                        window.location.href='/dashboard'
+                       
+                        navigate('/dashboard')
                     }else{
                         navigate('/employee')
                     }
-                    
-                   
-        }else{
+                     }else{
             alert('NO Record Found')
-              
-                }
-                
-            })
+                }})
             .catch(err => console.log(err))
     }
 

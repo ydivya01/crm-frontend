@@ -21,6 +21,7 @@ import InnerHome from './Pages/InnerHome';
 import AddUSer from './Pages/AddUSer';
 import Features from './Components/Features';
 import Singleuser from './Pages/Singleuser';
+import Testhome from './Components/testhome';
 // import Login from './Pages/Login';
 
 export const userContext = createContext()
@@ -32,29 +33,26 @@ const[user, setUser] = useState({})
 axios.defaults.withCredentials = true;
 
 useEffect(()=>{
-axios.get('http://localhost:3001')
+axios.get('http://localhost:3001/')
 .then(user=> {
   setUser(user.data)
+  console.log(user)
 })
 .catch(err => console.log(err))
   },[])
 
   return (
-    // <div className="app">
-// {/* <BrowserRouter> */}
-// {/* <NavBar/> */}
-// {/* <Routes>
-
+  
  <>
  <userContext.Provider value={user}>
 <BrowserRouter>
 <Navbar/>
 <Routes>
   <Route path='/register' element={<Signup/>}/>
-  <Route path='/login' element={<Login/>}/>
+  <Route path='/login' element={<Login setUser={setUser}/>}/>
   <Route path='/dashboard' element={<Dashboard/>}/>
   <Route path='/forgotpassword' element={<ForgotPassword/>}/>
- 
+  <Route path='/testhome' element={<Testhome/>}/>
   <Route path='/createticket' element={<Createticket/>}/>
   <Route path='/ticket/:id' element={<SingleTicket/>}/>
   <Route path='/user/:id' element={<Singleuser/>}/>

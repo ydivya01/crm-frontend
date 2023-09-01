@@ -1,56 +1,72 @@
 import React from 'react'
-import { Card, CardBody, CardImg, CardText, CardTitle, CardImgOverlay } from 'reactstrap'
-import HomeComp from '../Components/HomeComp'
+import { Card, CardBody, CardImg, CardText, CardTitle, Button } from 'reactstrap'
+import {Link} from 'react-router-dom'
+
 import './style.css'
 import Footer from '../Components/Footer'
-//import {Link} from 'react-router-dom'
+import './Home.css'
+import Testhome from '../Components/testhome'
+
 
 
 function Home() {
   return (
     <>
+    <Testhome/>
 
-      <div>
-        <Card inverse style={{width:'100'}}>
-          <HomeComp className='text-center' />
-          <CardImgOverlay>
-            <CardTitle tag="h5">
-              Card Title
-            </CardTitle>
+<section class="info">
+  <img src=""/>
+  <h1>DivyaJ-CRM &mdash; BOOST YOUR BUSINESS</h1>
+</section>
+<section class="cards-wrapper">
+  <div class="card-grid-space">
+    <div class="num">Open Source Technology</div>
+    
+    <div class="card">
+    <div>
+        <h1>Send awesome email marketing campaigns
 
-      
-          </CardImgOverlay>
-        </Card>
+</h1>
+        <p>Create and send customizable email campaigns with pro templates, built to get more clicks.…</p>
+        <div class="date">6 Oct 2017</div>
+       
+        <Link to='/support'><Button>Click</Button></Link>
       </div>
+    </div>
+     
+   
+  </div>
+  <div class="card-grid-space">
+    <div class="num">Deployment Option</div>
+    
+      <div class='card'>
+        <h1>Manage all your documents in one place</h1>
+        <p>Manage all your documents in one place
 
+Centralize the entire documentation process by sending trackable quotes, proposals and contracts from within Pipedrive.</p>
+        <div class="date">1-9-2023</div>
+        
+        <Link to='/support'><Button>Click</Button></Link>
+      </div>
+   
+  </div>
+  
+  <div class="card-grid-space">
+    <div class="num">24/7 Global Support</div>
+    {/* <Link to='/support' class="card" /> */}
 
-
-
-
-      <CardBody>
-        <CardTitle tag="h1" className='text-center'>
-          Customer relationship management
-        </CardTitle>
-        <CardText className='text-center'>
-          <h3 className='text-center'> Great Tools = Happy People</h3>
-          <ul className='list_item'>
-            <li>Agents collaborate and provide quicker resolutions with
-              one inbox for all customer queries.</li>
-            <li>Automate repetitive tasks and route tickets to the right teams
-              to increase agent productivity.</li>
-            <li>You understand your customers better with game-changing
-              insights and deliver customer delight.</li>
-          </ul>
-        </CardText>
-        <CardText>
-          <small className="text-muted">
-            Last updated 3 mins ago
-          </small>
-        </CardText>
-      </CardBody>
+      <div class='card'>
+        <h1 className='text-center'>Support Center</h1>
+        <p>Efficiently outline intricate tasks using Projects’ intuitive, familiar kanban board view. Tailor tasks with labels and oversee projects using custom fields and filters. Track progress and collaborate seamlessly with your team.</p>
+        <div class="date">1-09-2023</div>
+        <Link to='/support'><Button>Click</Button></Link>
+      </div>
+    
+  </div>
+  
+  
+</section>
 <Footer/>
-
-
     </>
   )
 }

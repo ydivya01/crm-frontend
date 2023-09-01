@@ -1,8 +1,11 @@
 import React, { useEffect } from 'react'
 import axios from 'axios'
-import { useState } from 'react'
+import { useState , useContext} from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import { Button } from 'reactstrap'
+import { userContext } from '../App'
+
+
 
 function EditTicket() {
 
@@ -11,20 +14,28 @@ function EditTicket() {
 
     const navigate = useNavigate()
 
-
+    const user = useContext(userContext)
     const { id } = useParams()
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        axios.put('http://localhost:3001/editticket/'+id, { title, description })
+        await axios.put('http://localhost:3001/editticket/'+id, { title, description })
             .then(res => {
-                console.log(res.data)
+                console.log(user)
+                console.log(user.role , res.data, user.email)
                 if (res.data === 'Success') {
-                    navigate('/employee')
+                    if(user.name === 'Divya Yadav'){
+                        navigate('/dashboard')
+                    }else{
+                        navigate('/employee')
+                    }
+                   
                 }
             })
             .catch(err => console.log(err))
     }
+
+    
 
     useEffect(() => {
         axios.get('http://localhost:3001/getticketbyid/'+ id)
@@ -38,7 +49,9 @@ function EditTicket() {
 
     return (
         <div className='d-flex justify-content-center align-items-center bg-secondary vh-100'>
+              
             <div className='bg-white p-3 rounded w-60'>
+             
             <Button onClick={() => navigate(-1)}> Back</Button>
                 <h2 className='text-center'>Update Service Request</h2>
                 <form onSubmit={handleSubmit}>
